@@ -1,40 +1,44 @@
 import { Request, Response } from "express";
 import { ProjectService } from "./project.service.js";
 import { Project } from "./project.model.js";
+import { catchAsync } from "../../utils/catchAsync.js";
+import { sendResponse } from "../../utils/sendResponse.js";
 
-// helper type for route params
-interface ProjectParams {
-  id: string;
-}
-
-const createProject = async (req: Request, res: Response) => {
+const createProject = catchAsync(async (req, res) => {
   const result = await ProjectService.createProject(req.body);
-  res.status(201).json({
+
+  sendResponse(res, {
+    statusCode: 201,
     success: true,
+    message: "Project created successfully",
     data: result,
   });
-};
+});
 
-const getAllProjects = async (req: Request, res: Response) => {
+const getAllProjects = catchAsync(async (req, res) => {
   const { status } = req.query;
 
   const result = await ProjectService.getAllProjects(status as string);
 
-  res.status(200).json({
+  sendResponse(res, {
+    statusCode: 200,
     success: true,
+    message: "Projects retrieved successfully",
     data: result,
   });
-};
+});
 
-const getSingleProject = async (req: Request<ProjectParams>, res: Response) => {
+const getSingleProject = catchAsync(async (req, res) => {
   const { id } = req.params;
-  const result = await ProjectService.getSingleProject(id);
+  const result = await ProjectService.getSingleProject(id as string);
 
-  res.status(200).json({
+  sendResponse(res, {
+    statusCode: 200,
     success: true,
+    message: "Project retrieved successfully",
     data: result,
   });
-};
+});
 
 export const ProjectController = {
   createProject,
