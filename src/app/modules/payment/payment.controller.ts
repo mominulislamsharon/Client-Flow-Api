@@ -26,7 +26,19 @@ const getPaymentsByProject = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getAllPayments = catchAsync(async (req: Request, res: Response) => {
+  const result = await PaymentService.getAllPayments();
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: "All payments retrieved successfully",
+    data: result,
+  });
+});
+
 export const PaymentController = {
   createPayment,
   getPaymentsByProject,
+  getAllPayments,
 };

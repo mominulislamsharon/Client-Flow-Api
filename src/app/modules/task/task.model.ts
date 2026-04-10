@@ -8,7 +8,7 @@ const TaskSchema = new Schema<ITask>(
     assignedTo: { type: String },
     status: {
       type: String,
-      enum: ["todo", "doigng", "done"],
+      enum: ["todo", "doing", "done"],
       default: "todo",
     },
     priority: {
@@ -16,6 +16,7 @@ const TaskSchema = new Schema<ITask>(
       enum: ["low", "medium", "high"],
       default: "medium",
     },
+    dueDate: { type: Date },
   },
   {
     timestamps: true,

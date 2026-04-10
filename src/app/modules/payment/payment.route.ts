@@ -4,6 +4,7 @@ import { PaymentController } from "./payment.controller.js";
 const router = express.Router();
 
 router.post("/", PaymentController.createPayment);
+router.get("/", PaymentController.getAllPayments);
 router.get("/project/:projectId", PaymentController.getPaymentsByProject);
 
 

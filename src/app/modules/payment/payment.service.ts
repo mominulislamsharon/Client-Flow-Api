@@ -18,7 +18,20 @@ const getPaymentsByProject = (projectId: string) => {
   return result;
 };
 
+const getAllPayments = () => {
+  const result = Payment.find()
+    .populate({
+      path: "project",
+      populate: {
+        path: "client",
+      },
+    })
+    .sort({ createdAt: -1 });
+  return result;
+};
+
 export const PaymentService = {
   createPayment,
   getPaymentsByProject,
+  getAllPayments,
 };

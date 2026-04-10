@@ -3,7 +3,7 @@ import { Types } from "mongoose";
 export interface IPayment {
   project: Types.ObjectId;
   amount: number;
-  status: "unpaid" | "paid" | "partial";
+  status: "unpaid" | "paid" | "partial" | "overdue";
   paymentDate?: Date;
   method?: string;
 }

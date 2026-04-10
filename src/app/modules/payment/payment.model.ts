@@ -7,7 +7,7 @@ const paymentSchema = new Schema<IPayment>(
     amount: { type: Number, required: true },
     status: {
       type: String,
-      enum: ["unpaid", "paid", "partial"],
+      enum: ["unpaid", "paid", "partial", "overdue"],
       default: "unpaid",
     },
     paymentDate: { type: Date },
