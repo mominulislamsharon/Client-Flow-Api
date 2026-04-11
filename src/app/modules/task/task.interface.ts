@@ -6,4 +6,5 @@ export interface ITask {
     assignedTo?: string;
     status: "todo" | "doigng" | "done";
     priority: "low" | "medium" | "high";
+    dueDate?: Date;
 }
