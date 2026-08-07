@@ -31,14 +31,6 @@ Install dependencies:
 ```bash
    npm install
    ```
-Set up environment variables:
-Create a `.env` file in the root directory:
-```env
-   PORT=5000
-   MONGODB\_URI=your\_mongodb\_connection\_string
-   JWT\_SECRET=your\_jwt\_secret
-   CORS\_ORIGIN=http://localhost:3000
-   ```
 Run the project:
 ```bash
    # Development
