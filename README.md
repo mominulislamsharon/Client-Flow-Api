@@ -64,13 +64,6 @@ npm install
 
 Create a `.env` file in the root directory:
 
-```env
-PORT=5000
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-CORS_ORIGIN=http://localhost:3000
-```
-
 ### 4. Run the project
 
 ```bash
